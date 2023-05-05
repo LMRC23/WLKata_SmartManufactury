@@ -27,6 +27,8 @@ topic2 = "/home"           #publisher
 topic3 = "/zero"                  #publisher
 topic0 = "/recepcion"
 topic4 = "/pick_routine"
+topic5 = "pick_pieza1"
+topic6 = "retrieve_pieza1"
 
 routine_list = [0]
 
@@ -99,7 +101,12 @@ def routine_pick():
     sleep(1)
     arm.go_to_axis(0,0,0,0,0,0,0)
         
-    
+def routine_pick_piece1():
+    arm.go_to_axis()
+
+def routine_retrieve_piece1():
+    arm.go_to_axis()
+
 
 ##########  Funciones  ##########
 def on_message_msgs(client, userdata, message):
@@ -142,6 +149,16 @@ def on_message_msgs(client, userdata, message):
         print(var1)
         routine_pick()
 
+    if message.topic == topic5:
+        var1 =  message.payload.decode("utf-8")
+        print(var1)
+        routine_pick_piece1()
+    
+    if message.topic == topic6:
+        var1 =  message.payload.decode("utf-8")
+        print(var1)
+        routine_retrieve_piece1()
+
         
         #routine_BC(var1)
     
@@ -157,13 +174,17 @@ if __name__ == '__main__':
         client.subscribe(topic0)
         client.subscribe(topic2)
         client.subscribe(topic3)
-        client.subscribe(topic4)  
+        client.subscribe(topic4)
+        client.subscribe(topic5)
+        client.subscribe(topic6)  
     
         client.message_callback_add(topic0, on_message_msgs)
         client.message_callback_add(topic1, on_message_msgs)
         client.message_callback_add(topic2, on_message_msgs)
         client.message_callback_add(topic3, on_message_msgs)
         client.message_callback_add(topic4, on_message_msgs)
+        client.message_callback_add(topic5, on_message_msgs)
+        client.message_callback_add(topic6, on_message_msgs)
       
         client.loop_forever()
 

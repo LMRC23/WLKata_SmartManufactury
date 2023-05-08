@@ -171,54 +171,63 @@ def routine_TRG_recoger():
     arm.go_to_axis(0,0,0,0,0,0) #FIN
 
 def routine_TNM_dejar():
-    arm.go_to_axis()
+    arm.set_speed(2000)
+    arm.go_to_axis(0,0,0,0,0,0) #INICIO
+    arm.set_slider_posi(0,speed=500)
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(-74,60.7,-8.4,0,-52.2,14.1) #Recoger pieza
+    arm.set_slider_posi(0,speed=500)
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(-64.3,8.1,48.8,0,-56.9,4.4) #Acercar al brazo
+    arm.set_slider_posi(0,speed=500)
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(-64.2,-24.7,37.3,0,-12.5,4.4) #Subir pieza
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(34.4,-38.3,46.5,0,-8.1,5.9) #Rotar WLK
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(84.3,-36.2,31.8,0,4.4,5.9) #Seguir rotando
+    arm.set_slider_posi(-114,speed=500)
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(86.1,-2.1,4.7,0.3,-7.6,4) #Calibrar efector
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(85.3,-2,4.7,0.4,-7.7,4.8) #Colocar efector
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(85.3,-1.9,13.2,0.4,-16.2,4.8) #Dejar pieza
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(83,-39.3,42.5,0.5,-8,6.9) #Retirar efector
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(0,-39.3,42.5,0.5,-8,6.9) #Rotar WLK
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(0,0,0,0,0,0) #FIN
+    arm.set_slider_posi(0,speed=500)
 
 def routine_TNM_recoger():
-    arm.go_to_axis()
+    arm.go_to_axis(0,0,0,0,0,0) #INICIO
+    arm.set_slider_posi(0,speed=500)
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(0,-39.3,42.5,0.5,-8,6.9) #Rotar WLK
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(83,-39.3,42.5,0.5,-8,6.9) #Mover riel
+    arm.set_slider_posi(-114,speed=500)
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(85.3,-1.9,13.2,0.4,-16.2,4.8) #Posicionar efector
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(85.3,-2,4.9,0.4,-7.8,4.7) #Subir efector
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(83,-37.4,32.9,0.5,-0.4,6.9) #Retirar efector
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(84.3,-36.2,31.8,0,4.4,5.9) #Seguir
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(34.3,-38.3,46.5,0,-8.1,5.9) #Rotar WLK
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(-64.2,-24.7,37.3,0,-12.5,4.4) #Subir pieza
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(-64.3,8.1,48.8,0,-56.9,4.4) #Retirar
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(-74,60.7,-8.4,0,-52.2,14.1) #RFID
+    arm.set_slider_posi(0,speed=500)
     sleep(1)
-    arm.go_to_axis()
+    arm.go_to_axis(0,0,0,0,0,0) #FIN
     
 
 

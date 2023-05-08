@@ -6,7 +6,7 @@ from wlkata_mirobot import WlkataMirobot
 import datetime;
 
 print("connecting...")
-arm = WlkataMirobot(portname='COM6')
+arm = WlkataMirobot(portname='COM5')
 print("connected... OK")
 
 sleep(1)
@@ -27,10 +27,10 @@ topic2 = "/home"           #publisher
 topic3 = "/zero"                  #publisher
 topic0 = "/recepcion"
 topic4 = "/pick_routine"
-topic5 = "TRG_dejar"
-topic6 = "TRG_recoger"
-topic7 = "TNM_dejar"
-topic8 = "TNM_recoger"
+topic5 = "/TRG_dejar"
+topic6 = "/TRG_recoger"
+topic7 = "/TNM_dejar"
+topic8 = "/TNM_recoger"
 
 routine_list = [0]
 
@@ -107,21 +107,21 @@ def routine_TRG_dejar():
     arm.set_speed(1000)
     arm.go_to_axis(0,0,0,0,0,0) #INICIO
     sleep(1)
-    arm.go_to_axis(-70,70,-18,0,-62,7.5) #Recoger pieza
     arm.set_slider_posi(0,speed=1000)
+    arm.go_to_axis(-70,70,-18,0,-62,7.5) #Recoger pieza
     sleep(10)
     arm.set_speed(100)
     arm.go_to_axis(-58,14,45,-5.5,-68,-10) #Acercar al WLKata
     sleep(1)
-    arm.go_to_axis(-58,13.9,45,-5.5,-67.9,-10) #Mover riel
     arm.set_slider_posi(0,speed=500)
+    arm.go_to_axis(-58,13.9,45,-5.5,-67.9,-10) #Mover riel
     sleep(1)
     arm.go_to_axis(22,-17,6,3,2,-5) #Subir pieza
     sleep(1)
     arm.go_to_axis(95.3,63.1,288.4,8.7,-8.6,82.4) #Posicionar efector
     sleep(1)
-    arm.go_to_axis(68.2,-8.8,-18,1.2,20.1,12.9) #Acercar efector
     arm.set_slider_posi(-15,speed=500)
+    arm.go_to_axis(68.2,-8.8,-18,1.2,20.1,12.9) #Acercar efector
     sleep(1)
     arm.set_speed(2000)
     arm.go_to_axis(57.8,146.5,303.6,-0.4,-1.9,86.6) #Posicionamiento mejorado
@@ -141,8 +141,8 @@ def routine_TRG_dejar():
 
 def routine_TRG_recoger():
     arm.set_speed(2000)
-    arm.go_to_axis(0,0,0,0,0,0) #INICIO
     arm.set_slider_posi(0,speed=500)
+    arm.go_to_axis(0,0,0,0,0,0) #INICIO
     sleep(1)
     arm.go_to_axis(0,-40,24,7.5,4,17) #Rotar a P0
     sleep(1)
@@ -150,43 +150,43 @@ def routine_TRG_recoger():
     sleep(1)
     arm.go_to_axis(55.5,-34.1,13.5,7.7,15.1,28.9) #Colocar efector
     sleep(1)
-    arm.go_to_axis(70,4.7,-21.2,5.8,8.9,15.8) #Recoger pieza
     arm.set_slider_posi(-10,speed=500)
+    arm.go_to_axis(70,4.7,-21.2,5.8,8.9,15.8) #Recoger pieza
     sleep(1)
     arm.go_to_axis(70.3,20,-53.8,3.6,34.9,14.3) #Subir pieza
     sleep(1)
-    arm.go_to_axis(68.2,-8.8,-18,1.2,20.1,12.9) #Retirar efector
     arm.set_slider_posi(-15,speed=500)
+    arm.go_to_axis(68.2,-8.8,-18,1.2,20.1,12.9) #Retirar efector
     sleep(1)
     arm.go_to_axis(22,-17,6,3,2,-5) #Bajar pieza
     sleep(1)
-    arm.go_to_axis(-58,13.9,45,-5.5,-67.9,-10) #Mover riel
     arm.set_slider_posi(0,speed=500)
+    arm.go_to_axis(-58,13.9,45,-5.5,-67.9,-10) #Mover riel
     sleep(1)
     arm.go_to_axis(-58,14,45,-5.5,-68,-10) #Retirar del WLK
     sleep(1)
-    arm.go_to_axis(-70,70,-18,0,-62,7.5) #RFID
     arm.set_slider_posi(0,speed=500)
+    arm.go_to_axis(-70,70,-18,0,-62,7.5) #RFID
     sleep(1)
     arm.go_to_axis(0,0,0,0,0,0) #FIN
 
 def routine_TNM_dejar():
     arm.set_speed(2000)
+    arm.set_slider_posi(0,speed=500)
     arm.go_to_axis(0,0,0,0,0,0) #INICIO
-    arm.set_slider_posi(0,speed=500)
     sleep(1)
+    arm.set_slider_posi(0,speed=500)
     arm.go_to_axis(-74,60.7,-8.4,0,-52.2,14.1) #Recoger pieza
-    arm.set_slider_posi(0,speed=500)
     sleep(1)
-    arm.go_to_axis(-64.3,8.1,48.8,0,-56.9,4.4) #Acercar al brazo
     arm.set_slider_posi(0,speed=500)
+    arm.go_to_axis(-64.3,8.1,48.8,0,-56.9,4.4) #Acercar al brazo
     sleep(1)
     arm.go_to_axis(-64.2,-24.7,37.3,0,-12.5,4.4) #Subir pieza
     sleep(1)
     arm.go_to_axis(34.4,-38.3,46.5,0,-8.1,5.9) #Rotar WLK
     sleep(1)
-    arm.go_to_axis(84.3,-36.2,31.8,0,4.4,5.9) #Seguir rotando
     arm.set_slider_posi(-114,speed=500)
+    arm.go_to_axis(84.3,-36.2,31.8,0,4.4,5.9) #Seguir rotando
     sleep(1)
     arm.go_to_axis(86.1,-2.1,4.7,0.3,-7.6,4) #Calibrar efector
     sleep(1)
@@ -198,17 +198,18 @@ def routine_TNM_dejar():
     sleep(1)
     arm.go_to_axis(0,-39.3,42.5,0.5,-8,6.9) #Rotar WLK
     sleep(1)
-    arm.go_to_axis(0,0,0,0,0,0) #FIN
     arm.set_slider_posi(0,speed=500)
+    arm.go_to_axis(0,0,0,0,0,0) #FIN
 
 def routine_TNM_recoger():
-    arm.go_to_axis(0,0,0,0,0,0) #INICIO
+    arm.set_speed(2000)
     arm.set_slider_posi(0,speed=500)
+    arm.go_to_axis(0,0,0,0,0,0) #INICIO
     sleep(1)
     arm.go_to_axis(0,-39.3,42.5,0.5,-8,6.9) #Rotar WLK
     sleep(1)
-    arm.go_to_axis(83,-39.3,42.5,0.5,-8,6.9) #Mover riel
     arm.set_slider_posi(-114,speed=500)
+    arm.go_to_axis(83,-39.3,42.5,0.5,-8,6.9) #Mover riel
     sleep(1)
     arm.go_to_axis(85.3,-1.9,13.2,0.4,-16.2,4.8) #Posicionar efector
     sleep(1)
@@ -224,8 +225,8 @@ def routine_TNM_recoger():
     sleep(1)
     arm.go_to_axis(-64.3,8.1,48.8,0,-56.9,4.4) #Retirar
     sleep(1)
-    arm.go_to_axis(-74,60.7,-8.4,0,-52.2,14.1) #RFID
     arm.set_slider_posi(0,speed=500)
+    arm.go_to_axis(-74,60.7,-8.4,0,-52.2,14.1) #RFID
     sleep(1)
     arm.go_to_axis(0,0,0,0,0,0) #FIN
     

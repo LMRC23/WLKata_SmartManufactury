@@ -106,8 +106,10 @@ while True:
             R2_TNM_Recoger()
         elif x == 5:
             arm.home_7axis()
+        else:
+            print("Rutina no válida, intente de nuevo por favor")
     else:
-        print("Rutina no recnonocida, intente de nuevo por favor")
+        print("Comando no reconocido, intente de nuevo por favor")
 
 
 

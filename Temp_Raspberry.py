@@ -91,22 +91,24 @@ def R2_TNM_Recoger():
 
 
 while True:
-    x = int(input('Selecciona una rutina: '))
-    
-    if x == 0:
-        quit()
-    elif x == 1:
-        R1_TRG_Dejar()
-    elif x == 2:
-        R1_TRG_Recoger()
-    elif x == 3:
-        R2_TNM_Dejar()
-    elif x == 4:
-        R2_TNM_Recoger()
-    elif x == 5:
-        arm.home_7axis()
+    valor = input('Selecciona una rutina: ')
+    if valor.isdigit():
+        x=int(valor)
+        if x == 0:
+            quit()
+        elif x == 1:
+            R1_TRG_Dejar()
+        elif x == 2:
+            R1_TRG_Recoger()
+        elif x == 3:
+            R2_TNM_Dejar()
+        elif x == 4:
+            R2_TNM_Recoger()
+        elif x == 5:
+            arm.home_7axis()
     else:
         print("Rutina no recnonocida, intente de nuevo por favor")
+
 
 
 

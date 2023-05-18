@@ -11,7 +11,7 @@ import paho.mqtt.client as mqtt
 from wlkata_mirobot import WlkataMirobot
 import datetime;
 
-arm = WlkataMirobot(portname='/dev/ttyUSB0')
+arm = WlkataMirobot(portname='COM5')
 print('connected')
 #arm.home()
 #print('home rutine executed')
@@ -22,7 +22,7 @@ x = 1
 
 
 
-def Primera_rutina_TRG_Dejar_Pieza():
+def R1_TRG_Dejar():
     #INICIO
     arm.go_to_axis(0,0,0,0,0,0) 
     #Mover riel
@@ -51,7 +51,7 @@ def Primera_rutina_TRG_Dejar_Pieza():
     #FIN
     arm.go_to_axis(0,0,0,0,0,0)
 
-def Primera_rutina_TRG_Recoger_Pieza():
+def R1_TRG_Recoger():
     #INICIO
     arm.go_to_axis(0,0,0,0,0,0) 
     arm.set_slider_posi(400)
@@ -79,30 +79,35 @@ def Primera_rutina_TRG_Recoger_Pieza():
     #FIN
     arm.go_to_axis(0,0,0,0,0,0)
     
-def Segunda_rutina_TNM_Dejar_Pieza():
+def R2_TNM_Dejar():
     arm.go_to_axis(10,3,3,10,3,3)
     arm.set_slider_posi(150)
 
-def Segunda_rutina_TNM_Recoger_Pieza():
+def R2_TNM_Recoger():
     arm.go_to_axis(3,3,3,3,3,3)
     arm.set_slider_posi(200)
 
 
 
 
-while x <= 6:
+while True:
     x = int(input('Selecciona una rutina: '))
     
-    if x == 1:
-        Primera_rutina_TRG_Dejar_Pieza()
+    if x == 0:
+        quit()
+    elif x == 1:
+        R1_TRG_Dejar()
     elif x == 2:
-        Primera_rutina_TRG_Recoger_Pieza()
+        R1_TRG_Recoger()
     elif x == 3:
-        Segunda_rutina_TNM_Dejar_Pieza()
+        R2_TNM_Dejar()
     elif x == 4:
-        Segunda_rutina_TNM_Recoger_Pieza()
+        R2_TNM_Recoger()
     elif x == 5:
         arm.home_7axis()
+    else:
+        print("Rutina no recnonocida, intente de nuevo por favor")
+
 
 
 

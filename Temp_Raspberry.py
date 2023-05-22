@@ -23,11 +23,12 @@ x = 1
 
 
 def R1_TRG_Dejar():
+    arm.set_speed(1500)
     #INICIO
     arm.go_to_axis(0,0,0,0,0,0) 
-    #Mover riel
-    arm.set_slider_posi(400)
-    #Rotar para evitar colición
+    #Mover riel a entrada
+    arm.set_slider_posi(407,2000)
+    #Rotar para evitar colisión
     arm.go_to_axis(-65,0,0,0,0,0)
     #Recoger pieza NFC
     arm.go_to_axis(-70,64,-15.5,-1,-55,6.6)
@@ -36,11 +37,11 @@ def R1_TRG_Dejar():
     arm.go_to_axis(-58,14,45,-5.5,-68,-10)
     #Subir pieza
     arm.go_to_axis(22,-17,6,3,2,-5)
-    #Pocisionar efector
+    #Posicionar efector
     arm.go_to_axis(74.3,-12,-19.3,0.4,29.6,11.9)
     #Acercar efector
     arm.go_to_axis(76.9,15,-46.8,0.3,30,9.1)
-    #Pocisionamiento mejorado
+    #Posicionamiento mejorado
     arm.go_to_axis(77,12.6,-35.7,0.3,21.3,8.8)
     #Colocar pieza
     arm.go_to_axis(69.4,-27,4.6,0.5,20.8,16.2)
@@ -50,11 +51,14 @@ def R1_TRG_Dejar():
     arm.go_to_axis(0,-40,24,7.5,4,17)
     #FIN
     arm.go_to_axis(0,0,0,0,0,0)
+    arm.set_slider_posi(50,2000)
+
 
 def R1_TRG_Recoger():
+    arm.set_speed(1500)
     #INICIO
     arm.go_to_axis(0,0,0,0,0,0) 
-    arm.set_slider_posi(400)
+    arm.set_slider_posi(407,2000)
     #Rotar 
     arm.go_to_axis(60,-37.6,30,0,7.6,0)
     #Subir
@@ -73,19 +77,78 @@ def R1_TRG_Recoger():
     arm.go_to_axis(-60,0,0,0,0,0)
     #NFC
     arm.go_to_axis(-71.1,61,-9.6,0,-51.4,11)
-    sleep(51)
+    sleep(5)
     #Subir
     arm.go_to_axis(-60,0,0,0,0,0)
     #FIN
     arm.go_to_axis(0,0,0,0,0,0)
+    arm.set_slider_posi(50,2000)
     
+
 def R2_TNM_Dejar():
-    arm.go_to_axis(10,3,3,10,3,3)
-    arm.set_slider_posi(150)
+    arm.set_speed(1500)
+    #INICIO
+    arm.go_to_axis(0,0,0,0,0,0)
+    #Mover riel a entrada
+    arm.set_slider_posi(407,2000)
+    #Rotar para evitar colisión
+    arm.go_to_axis(-65,0,0,0,0,0)
+    #Recoger pieza NFC
+    arm.go_to_axis(-70,64,-15.5,-1,-55,6.6)
+    sleep(5)
+    #Acercar al WLKata
+    arm.go_to_axis(-58,14,45,-5.5,-68,-10)
+    #Subir pieza
+    arm.go_to_axis(0,0,0,0,0,0)
+    #Mover riel
+    arm.set_slider_posi(296,2000)
+    #Acercar efector y posición
+    arm.go_to_axis(90,-40,50,0,-10,0)
+    #Meter efector
+    arm.go_to_axis(90,12,0,0,-15,0)
+    #Dejar pieza
+    arm.go_to_axis(90,10,10,0,-22,0)
+    #Retirar efector
+    arm.go_to_axis(90,-35,52,0,-19,0)
+    #Rotar brazo
+    arm.go_to_axis(0,-35,52,0,-19,0)
+    #FIN
+    arm.go_to_axis(0,0,0,0,0,0)
+    arm.set_slider_posi(50,2000)
+
 
 def R2_TNM_Recoger():
-    arm.go_to_axis(3,3,3,3,3,3)
-    arm.set_slider_posi(200)
+    arm.set_speed(1500)
+    #INICIO
+    arm.go_to_axis(0,0,0,0,0,0)
+    #Mover riel
+    arm.set_slider_posi(296,2000)
+    #Acercar efector y posición
+    arm.go_to_axis(90,-35,52,0,-19,0)
+    #Meter efector
+    arm.go_to_axis(90,10,10,0,-22,0)
+    #Recoger pieza
+    arm.go_to_axis(90,12,0,0,-15,0)
+    #Retirar efector
+    arm.go_to_axis(90,-40,50,0,-10,0)
+    #Rotar brazo
+    arm.go_to_axis(0,-40,50,0,-10,0)
+    #Posición P0
+    arm.go_to_axis(0,0,0,0,0,0)
+    #Mover riel
+    arm.set_slider_posi(407,2000)
+    #Rotar para evitar colisión
+    arm.go_to_axis(-65,0,0,0,0,0)
+    #Dejar pieza NFC
+    arm.go_to_axis(-70,64,-15.5,-1,-55,6.6)
+    sleep(5)
+    #Acercar al WLKata
+    arm.go_to_axis(-58,14,45,-5.5,-68,-10)
+    #Regresar
+    arm.go_to_axis(-60,0,0,0,0,0)
+    #FIN
+    arm.go_to_axis(0,0,0,0,0,0)
+    arm.set_slider_posi(50,2000)
 
 
 
